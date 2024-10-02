@@ -16,7 +16,7 @@ from langchain.schema import BaseOutputParser
 
 import time
 
-filefmt = '%m%d'
+filefmt = 'm%d_%H%M'
 
 t = time.strftime(filefmt, time.localtime())
 
