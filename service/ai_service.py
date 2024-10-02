@@ -14,6 +14,12 @@ from logger import log
 
 from langchain.schema import BaseOutputParser
 
+import time
+
+filefmt = '%m%d'
+
+t = time.strftime(filefmt, time.localtime())
+
 
 class JsonOutputParser(BaseOutputParser):
     def parse(self, text):
@@ -121,5 +127,5 @@ class AIService:
 
     def download_image(self, inputs):
         data = requests.get(inputs['url']).content
-        with open(f"{self.image_dir}/{inputs['image_name']}", 'wb') as handler:
+        with open(f"{self.image_dir}/{t}.jpg", 'wb') as handler:
             handler.write(data)
